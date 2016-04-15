@@ -1,0 +1,363 @@
+@font-face {
+    font-family: Comfortaa;
+    src: url(Comfortaa.ttf);
+}
+
+@font-face {
+    font-family: minecraft;
+    src: url(minecraft.ttf);
+}
+
+body {
+	font-family: Comfortaa;
+	background: url(../res/bg.png) no-repeat fixed;
+	background-size: cover;
+}
+
+#content 
+{
+    position: relative;
+	background-color: #fff;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	margin-left: 8%;
+	margin-right: 8%;
+	padding: 10px;
+	border-radius: 2px;
+	box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+}
+
+#logo {
+	position: relative;
+}
+
+#logo p {
+	font-family: minecraft, Comfortaa;
+	text-align: center;
+	font-size: 40px;
+	padding: 15px;
+	position: relative;
+}
+
+#logo p:after {
+	content: "beta 1.5";
+	font-size: 15px;
+	padding: 10px;
+	background-color: #C33;
+	border-radius: 5px;
+	position: absolute;
+	top: 5px;
+	color: #fff;
+	transform: rotate(7deg);
+	
+}
+
+#description {
+	text-align: center;
+}
+
+#container {
+	width: 100%;
+	margin-top: 25px;
+}
+
+#download {
+	margin: 25px;
+	position: relative;
+	height: 60px;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+
+input[type=submit], .button {
+	border: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 50px;
+	padding-right: 50px;
+	background-color: #78AB46;
+	box-shadow: 0px 5px #3F5924;
+	font-size: 25px;
+	color: #fff;
+	font-family: minecraft, Comfortaa;
+	border-radius: 5px;
+	outline: none;
+	margin-left: auto;
+	margin-right: auto;	
+	cursor: pointer;
+	margin-bottom: 5px;
+	user-select: none;
+}
+
+input[type=text] {
+	border: none;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 2px;
+	width:90%;
+}
+
+input[type=submit]:active, .button:active {
+	box-shadow: none;
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+#credits a {
+	color: #06F;
+	text-decoration: none;
+	line-height: 150%;
+}
+
+#add 
+{
+    background-color: #fff;    	
+	z-index: 100;
+	padding: 30px;
+	width: 300px;
+	border-radius: 2px;
+    box-shadow: 0px 7px 40px 2px rgba(0,0,0,0.6);
+    display: none;
+}
+
+#edit 
+{
+    background-color: #fff;    	
+	z-index: 100;
+	width: 320px;
+	padding: 30px;
+	border-radius: 2px;
+    box-shadow: 0px 7px 40px 2px rgba(0,0,0,0.6);
+    display: none;
+}
+
+#share 
+{
+    background-color: #fff;    	
+	z-index: 100;
+	width: 320px;
+	padding: 30px;
+	border-radius: 2px;
+    box-shadow: 0px 7px 40px 2px rgba(0,0,0,0.6);
+    display: none;
+}
+
+#shader 
+{
+    z-index: 99;
+    background-color: rgba(0,0,0,0.6);
+    position:fixed;
+    top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+    display: none;
+}
+
+#sidebar 
+{
+    position: fixed;
+    background-color: #fff;
+    z-index:2;
+    right: 0px;
+    top: 15%;	
+	padding: 10px;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	box-shadow: 0 15px 24px rgba(0, 0, 0, 0.22), 0 19px 76px rgba(0, 0, 0, 0.3);
+
+    
+}
+
+.sidebarButton
+{
+    width: 50px;
+    height: 50px;
+    cursor:pointer;
+    -webkit-transition: .2s ease all;
+    background-size: cover;
+}
+
+.sidebarButton:hover
+{
+    transform: rotate(360deg);
+    -webkit-transition: .2s ease all;    
+}
+
+.openAdd.sidebarButton
+{
+    background-image: url('../res/add.png');
+}
+
+.eatAllCookies 
+{
+    background-image: url('../res/clear.png');
+}
+
+.mutePack 
+{
+    background-image: url('../res/mute.png');
+    margin-top: 30px;
+}
+
+label 
+{
+    position: fixed;
+    z-index: 200;
+    background-color: #999;
+    padding: 10px;  
+    border: 1px solid #000;
+    border-radius: 2px;  
+    display: none;
+}
+
+
+/*
+    SERVER STYLE
+*/
+
+.server 
+{
+    margin: 35px;
+	display:inline-table;	
+	position: relative;
+	border: 1px solid #000;
+	padding: 10px 30px 30px 30px;
+	border-radius: 2px;
+	min-width: 200px;
+	padding-bottom: 50px;
+}
+
+.server.open 
+{
+    background-color: #629632;
+}
+
+.server.closed
+{
+    background-color: #DDD;
+}
+
+.favicon 
+{
+    margin-bottom: 10px;
+}
+
+.modt 
+{
+}
+
+.players 
+{
+    padding: 5px;
+}
+
+.playersList 
+{
+    max-width: 30%;
+}
+
+.version
+{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.actionBar 
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    min-width: 200px;
+    height:40px;
+    background-color: #fff;
+    box-shadow: 0px -5px 11px -2px rgba(0,0,0,0.75);
+    display: none;
+}
+
+.actionBar .option 
+{
+    border: none;
+    background-color: #fff;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    display: inline-block;
+    background-size: cover;
+    cursor: pointer;
+    
+}
+
+.removeServer 
+{
+    background-image: url('../res/remove.png');
+}
+
+.openEdit 
+{
+    background-image: url('../res/edit.png');
+}
+
+.openShare 
+{
+    background-image: url('../res/share.png'); 
+}
+
+.toggleNotif.off
+{
+    background-image: url('../res/off.png'); 
+}
+
+.toggleNotif.on
+{
+    background-image: url('../res/on.png'); 
+}
+
+.refresh 
+{
+    background-image: url('../res/refresh.png');
+}
+
+a
+{
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+/*
+    COLOR FORAMTTING
+*/
+
+.cf0 {color: #000000}
+.cf1 {color: #0000AA}
+.cf2 {color: #00AA00}
+.cf3 {color: #00AAAA}
+.cf4 {color: #AA0000}
+.cf5 {color: #AA00AA}
+.cf6 {color: #FFAA00}
+.cf7 {color: #AAAAAA}
+.cf8 {color: #555555}
+.cf9 {color: #5555FF}
+.cfa {color: #55FF55}
+.cfb {color: #55FFFF}
+.cfc {color: #FF5555}
+.cfd {color: #FF55FF}
+.cfe {color: #FFFF55}
+.cff {color: #FFFFFF}
+
+.cfl {font-weight: bold;}
+.cfm {text-decoration: line-through;}
+.cfn {text-decoration: underline;}
+.cfo {font-style: italic}
+.cfr {font-style: normal; text-decoration: none; color: #000; font-weight: normal;}
