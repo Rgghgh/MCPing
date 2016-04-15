@@ -131,12 +131,14 @@ function ping(index, prev) {
             if (arr['status']) {
                 var players = {};
 
+                /* # Currently Disabled player list #
                 for (var x in arr['sample']) {
                     players["" + arr['sample'][x]['name']] = {
                         "name": arr['sample'][x]['name'],
                         "icon": playerHead + arr['sample'][x]['name']
                     };
                 }
+                */
 
                 servers[index]['properties'] = {
                     "version": arr['version'],
