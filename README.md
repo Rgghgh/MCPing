@@ -8,6 +8,10 @@ A online tool that pings the servers you add, and tells you if the servers are o
 Click "Add Server" to add servers.
 This website is based on "Cookies". Make sure "Cookies" are enabled.
 
+### Server Ping API
+An API is available for use -
+  [Wiki](https://github.com/Rgghgh/MCPing/wiki/API)
+
 #### Link
 [mcping.rgghgh.com](http://mcping.rgghgh.com)
 
