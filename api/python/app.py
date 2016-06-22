@@ -9,8 +9,7 @@ def player_list(to_parse):
         for val in to_parse:
             players += '{"name": "' + str(val.name) + '", "id": "' + str(val.id) + '"},'
         players = players[:-1]
-    except Exception, e:
-        print '{"status": "offline", "error": "' + str(e) + ', "src":"a"}'
+    except Exception:
         pass
     return players
 
