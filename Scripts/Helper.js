@@ -112,7 +112,8 @@ function colorForamtting(str) {
 
 // ------ PING -------- //
 
-var mcping = "https://mcapi.ca/query/";
+var mcping = "./api/";
+var mcfav = "https://mcapi.ca/query/";
 var playerHead = "https://crafatar.com/avatars/";
 
 function pingall() {
@@ -121,42 +122,36 @@ function pingall() {
 }
 
 function ping(index, prev) {
-    var xmlhttp = new XMLHttpRequest();
+    var url = mcping + servers[index]['ip'];
+    if (servers[index]['address'] != undefined)
+        url = mcping + servers[index]['address'] + "/" + servers[index]['port'];
 
-    var url = mcping + servers[index]['ip'] + "/info";
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var arr = JSON.parse(xmlhttp.responseText);
-
-            if (arr['status']) {
-                var players = {};
-                players["error"] = {name: "Error loading list. Will be fixed soon...", icon:"http://mcping.rgghgh.com/res/barrier.png"};
-                /*
-                 for (var x in arr['sample']) {
-                 players["" + arr['sample'][x]['name']] = {
-                 "name": arr['sample'][x]['name'],
-                 "icon": playerHead + arr['sample'][x]['name']
-                 };
-                 }
-                 */
-                servers[index]['properties'] = {
-                    "version": arr['version'],
-                    "online": arr['players']['online'],
-                    "max": arr['players']['max'],
-                    "motd": arr['motd'],
-                    "players": players,
-                    "favicon": mcping + servers[index]['ip'] + "/icon"
+    $.get(url, function (data) {
+        data = JSON.parse(data.replace(/'/g,'"'));
+        if (data['status'] == 'online') {
+            var players = {};
+            playersRaw = data["players"]["list"];
+            for (var x in playersRaw) {
+                players["" + playersRaw[x]['name']] = {
+                    "name": playersRaw[x]['name'],
+                    "icon": playerHead + playersRaw[x]['name']
                 };
             }
 
-            translate(index);
-            if (prev !== undefined)
-                update(index, prev);
+            servers[index]['properties'] = {
+                "version": data['version'],
+                "online": data['players']['online'],
+                "max": data['players']['max'],
+                "motd": "motd",
+                "players": players,
+                "favicon": mcfav + servers[index]['ip'] + "/icon"
+            };
         }
-    };
 
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+        translate(index);
+        if (prev !== undefined)
+            update(index, prev);
+    });
 }
 
 

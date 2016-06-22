@@ -10,7 +10,7 @@ var servers = {};
 // player { name, icon }
 
 var count;
-$.cookie.defaults = { path: '/', expires: 2555 };
+$.cookie.defaults = {path: '/', expires: 2555};
 
 $(document).ready(function () {
 
@@ -55,6 +55,12 @@ $(document).ready(function () {
                     "ip": serverIP,
                     "notif": notified
                 };
+
+                var split = serverIP.split(':');
+                if (split.length == 2) {
+                    servers["" + i]['address'] = split[0];
+                    servers["" + i]['port'] = split[1];
+                }
 
                 actual++;
                 gen += '<div class="server" id="' + i + '">';
@@ -227,7 +233,7 @@ function update(index, prev) {
         var openCurr = servers[index]['properties'] != undefined;
 
         if (openPrev && openCurr) {
-            var playersPrev = prev['properties']['players'];        
+            var playersPrev = prev['properties']['players'];
             var playersCurr = servers[index]['properties']['players'];
 
             for (var x in playersCurr) {
@@ -235,7 +241,7 @@ function update(index, prev) {
                 if (playersPrev[name] == undefined) {
                     var msg = name + " Has Joined " + servers[index]['name'];
                     var icon = playersCurr[x]['icon'];
-                    notify(msg, { 'icon': icon });
+                    notify(msg, {'icon': icon});
                 }
             }
         }
@@ -248,7 +254,7 @@ function update(index, prev) {
         if (!openPrev && openCurr) {
             var msg = servers[index]['name'] + " Is Online.";
             var icon = servers[index]['properties']['favicon'];
-            notify(msg, { 'icon': icon });
+            notify(msg, {'icon': icon});
         }
     }
 }
