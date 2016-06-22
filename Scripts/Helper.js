@@ -127,7 +127,7 @@ function ping(index, prev) {
         url = mcping + servers[index]['address'] + "/" + servers[index]['port'];
 
     $.get(url, function (data) {
-        data = JSON.parse(data.replace(/'/g,'"'));
+        data = JSON.parse(data);
         if (data['status'] == 'online') {
             var players = {};
             playersRaw = data["players"]["list"];
@@ -142,7 +142,7 @@ function ping(index, prev) {
                 "version": data['version'],
                 "online": data['players']['online'],
                 "max": data['players']['max'],
-                "motd": "motd",
+                "motd": "", //data['motd'],
                 "players": players,
                 "favicon": mcfav + servers[index]['ip'] + "/icon"
             };
