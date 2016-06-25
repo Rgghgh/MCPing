@@ -1,11 +1,24 @@
-Options +FollowSymLinks
+Options +FollowSymlinks
 RewriteEngine On
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9:.]+)[/]?$ test.php?url=$1 [NC,L]
 
-RewriteRule ^fav/([a-zA-Z.:0-9]+)$ favicon.php/?url=$1 [NC,L]
-RewriteRule ^fav/([a-zA-Z.:0-9]+)/([0-9]+)$ favicon.php/?url=$1&port=$2 [NC,L]
 
-RewriteRule ^([a-zA-Z.:0-9]+)$ index.php/?url=$1 [NC,L]
-RewriteRule ^([a-zA-Z.:0-9]+)/([0-9]+)$ index.php/?url=$1&port=$2 [NC,L]
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^fav/([a-zA-Z0-9:.]+)/([a-zA-Z0-9:.]+)[/]?$ favicon.php/?url=$1&port=$2 [NC,L]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^fav/([a-zA-Z0-9:.]+)[/]?$ favicon.php/?url=$1 [NC,L]
+
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9:.]+)/([a-zA-Z0-9:.]+)[/]?$ index.php/?url=$1&port=$2 [NC,L]
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^([a-zA-Z0-9:.]+)[/]?$ index.php?url=$1 [NC,L]
