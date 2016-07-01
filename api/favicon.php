@@ -1,6 +1,7 @@
 <?php
 
-function get($name) {
+function get($name)
+{
 	return isset($_GET[ $name ]) ? $_GET[ $name ] : null;
 }
 
@@ -15,7 +16,7 @@ if($port) {
 	$address .= ':' . $port;
 }
 
-$raw_img = exec("python ./python/favicon.py " . escapeshellarg($address));
+$raw_img = exec("python ./python/favicon.py 2>&1" . escapeshellarg($address));
 
 if($raw_img == 'None') {
 	readfile("icon.png");

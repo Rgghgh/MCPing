@@ -13,4 +13,4 @@ if($port) {
 	$address .= ':' . $port;
 }
 
-echo exec("python ./python/app.py " . escapeshellarg($address));
+echo exec("python ./python/app.py 2>&1" . escapeshellarg($address));
