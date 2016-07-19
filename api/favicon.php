@@ -16,7 +16,7 @@ if($port) {
 	$address .= ':' . $port;
 }
 
-$raw_img = exec("python ./python/favicon.py 2>&1" . escapeshellarg($address));
+$raw_img = exec("python ./python/favicon.py " . escapeshellarg($address) . " 2>&1");
 
 if($raw_img == 'None') {
 	readfile("icon.png");
