@@ -14,13 +14,18 @@ def player_list(to_parse):
 
 
 def motd(to_parse):
-    return str(to_parse)
+    return ""
 
 
 try:
     status = MinecraftServer.lookup(sys.argv[1]).status()
 
-    print '{"status": "online","latency": ' + str(status.latency) + ',"motd": "' + motd(status.description) + '","players": {"max": ' + str(status.players.max) + ',"online": ' + str(status.players.online) + ',"list": [' + player_list(status.players.sample) + ']},"version": "' + str(status.version.name) + '"}'
+    print '{"status": "online","latency": ' + str(status.latency) + \
+          ',"motd": "' + motd(status.description) + \
+          '","players": {"max": ' + str(status.players.max) + \
+          ',"online": ' + str(status.players.online) + \
+          ',"list": [' + player_list(status.players.sample) + \
+          ']},"version": "' + str(status.version.name) + '"}'
 except Exception, e:
     print '{"status": "offline", "error": "' + str(e) + '","src":"b"}'
     pass

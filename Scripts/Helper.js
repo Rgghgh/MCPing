@@ -113,7 +113,7 @@ function colorForamtting(str) {
 // ------ PING -------- //
 
 var mcping = "./api/";
-var mcfav = "https://mcapi.ca/query/";
+var mcfav = "./api/fav/";
 var playerHead = "https://crafatar.com/avatars/";
 
 function pingall() {
@@ -126,11 +126,10 @@ function ping(index, prev) {
     if (servers[index]['address'] != undefined)
         url = mcping + servers[index]['address'] + "/" + servers[index]['port'];
 
-    $.get(url, function (data) {
-        data = JSON.parse(data);
+    $.getJSON(url, function (data) {
         if (data['status'] == 'online') {
             var players = {};
-            playersRaw = data["players"]["list"];
+            var playersRaw = data["players"]["list"];
             for (var x in playersRaw) {
                 players["" + playersRaw[x]['name']] = {
                     "name": playersRaw[x]['name'],
@@ -144,7 +143,7 @@ function ping(index, prev) {
                 "max": data['players']['max'],
                 "motd": "", //data['motd'],
                 "players": players,
-                "favicon": mcfav + servers[index]['ip'] + "/icon"
+                "favicon": mcfav + servers[index]['ip']
             };
         }
 
