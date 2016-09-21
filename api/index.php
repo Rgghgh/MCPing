@@ -7,6 +7,11 @@ function get($name) {
 $url  = get('url');
 $port = get('port');
 
+if (!$url) {
+    header("Location: ./readme");
+    die();
+}
+
 $address = $url;
 
 if($port) {

@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>MCPing by Rgghgh</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>MCPing</h1>
+        <p>A Web App that pings minecraft servers to get their Online status, motd, version, player count and player list.</p>
+
+        <p class="view"><a href="http://mcping.rgghgh.com">< Back to MCPing</a></p>
+
+      </header>
+      <section>
+        <h1>
+<a id="the-mcping-api" class="anchor" href="#the-mcping-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The MCPing API</h1>
+
+<p>This is a "free for any usage" Minecraft server ping API.
+Can be used for obtaining the current status of a Minecraft server, ping time, player list, version, motd and more.</p>
+
+<h2>
+<a id="using-the-api" class="anchor" href="#using-the-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using the API</h2>
+
+<h3>
+<a id="server-info" class="anchor" href="#server-info" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Server Info</h3>
+
+<div class="highlight highlight-source-httpspec"><pre><span class="pl-k">GET</span> https://rgghgh.com/minecraft/mcp/api/&lt;SERVER ADDRESS&gt;/&lt;OPTIONAL:SERVER PORT&gt;</pre></div>
+
+<p>returns a json string with the server info, for example:</p>
+
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>online<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>latency<span class="pl-pds">"</span></span>: <span class="pl-c1">910.0</span>,
+  <span class="pl-s"><span class="pl-pds">"</span>motd<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>A Minecraft Server<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>1.10<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>players<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>max<span class="pl-pds">"</span></span>: <span class="pl-c1">20</span>,
+    <span class="pl-s"><span class="pl-pds">"</span>list<span class="pl-pds">"</span></span>: [
+      {
+        <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>Rgghgh<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>8354ecdd-7352-4ff4-8d79-7b22f94f94d5<span class="pl-pds">"</span></span>
+      },
+      {
+        <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>SuperDando<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>id<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>70f5571e-fd78-3c6b-8ee6-19f9e37a9d8a<span class="pl-pds">"</span></span>
+      }
+    ],
+    <span class="pl-s"><span class="pl-pds">"</span>online<span class="pl-pds">"</span></span>: <span class="pl-c1">2</span>
+  }
+}</pre></div>
+
+<p>if the server is offline, the returned json will be:</p>
+
+<div class="highlight highlight-source-json"><pre>{
+  <span class="pl-s"><span class="pl-pds">"</span>status<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>offline<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h3>
+<a id="favicon" class="anchor" href="#favicon" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Favicon</h3>
+
+<div class="highlight highlight-source-httpspec"><pre><span class="pl-k">GET</span> https://rgghgh.com/minecraft/mcp/api/fav/&lt;SERVER ADDRESS&gt;/&lt;OPTIONAL:SERVER PORT&gt;</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Rgghgh">Rgghgh</a></p>
+        <p><small>Page modified from GitHub Pages theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
