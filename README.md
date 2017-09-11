@@ -13,6 +13,10 @@ An API is available for use -
   [Wiki](https://github.com/Rgghgh/MCPing/wiki/API)
 
 #### Link
+
+http://rgghgh.github.io/MCPing/
+
+Old link -
 [mcping.rgghgh.com](http://mcping.rgghgh.com)
 
 #### Credits
