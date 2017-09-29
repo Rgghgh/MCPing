@@ -11,6 +11,8 @@ This website is based on "Cookies". Make sure "Cookies" are enabled.
 ### Server Ping API
 An API is available for use -
   [Wiki](https://github.com/Rgghgh/MCPing/wiki/API)
+  
+the API is a wrapper for Dinnerbone's python library [Link](https://github.com/Dinnerbone/mcstatus)
 
 #### Link
 
@@ -21,6 +23,5 @@ Old link -
 
 #### Credits
 * [Minecraft](https://minecraft.net/) by Mojang AB
-* [MCAPI](https://mcapi.ca/) Minecraft Server Query API
 * [Crafatar](https://crafatar.com/) Minecraft Player Heads API
 * [Icons8](http://icons8.com/) icon archive
